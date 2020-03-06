@@ -1,40 +1,27 @@
 <!DOCTYPE html>
-<html>
-<link rel="stylesheet" type="text/css" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
-
+<html lang="en">
 <head>
-    <title>
-    </title>
+    <meta charset="UTF-8">
+    <title>Cast your vote!!!</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
-<style>
-    .cnt {
-        width: 700px;
-        padding-left: 50px;
-        padding-top: 50px;
-    }
-</style>
 <body>
-    <div class="cnt">
-        <h2>Cast your vote for your favorite pet</h2>
-        <button type="button" onclick="setVote('cats')" class="btn btn-primary">Cats</button>
-        <button type="button" onclick="setVote('dogs')" class="btn btn-primary">Dogs</button>
-        <button type="button" onclick="setVote('parrots')" class="btn btn-primary">Parrots</button>
-    </div>
-</body>
+<div class="container text-center">
+    <h2>Cast your vote for your favorite pet.</h2>
+        <div class="buttons">
+            <button class="btn btn-primary" id="cats">Cats</button>
+            <button class="btn btn-primary" id="dogs">Dogs</button>
+            <button class="btn btn-primary" id="parrots">Parrots</button>
+        </div>
+</div>
 <script>
-    async function setVote(type){
-        const responce = await fetch('https://sf-pyw.mosyag.in/sse/vote/' + type , {
-        headers: {
-            'credentials': "include",
-            'Access-Control-Allow-Credentials': true,
-            'Access-Control-Allow-Origin': '*'
-        }
-        });
-        if (JSON.Parse(response).message = 'Ok') {
-            alert('ok');
-        } else {
-            alert('bad');
-        }
-    }
+    document.querySelector(".buttons").onclick = function(event){
+        let animal = event.target.id;
+        let vote = 'https://sf-pyw.mosyag.in/sse/vote/' + animal;
+        fetch(vote, {method: "POST"})
+            .then(response => response.json())
+            .then(data => {console.log(data.message)})
+    };
 </script>
+</body>
 </html>
