@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" type="text/css" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+<head>
+    <title>
+    </title>
+</head>
+<style>
+    .cnt {
+        width: 700px;
+        padding-left: 50px;
+        padding-top: 50px;
+    }
+</style>
+<body>
+    <div class="cnt">
+        <h2>Cast your vote for your favorite pet</h2>
+        <button type="button" onclick="setVote('cats')" class="btn btn-primary">Cats</button>
+        <button type="button" onclick="setVote('dogs')" class="btn btn-primary">Dogs</button>
+        <button type="button" onclick="setVote('parrots')" class="btn btn-primary">Parrots</button>
+    </div>
+</body>
+<script>
+    async function setVote(type){
+        const responce = await fetch('https://sf-pyw.mosyag.in/sse/vote/' + type , {
+        headers: {
+            'credentials': "include",
+            'Access-Control-Allow-Credentials': true,
+            'Access-Control-Allow-Origin': '*'
+        }
+        });
+        if (JSON.Parse(response).message = 'Ok') {
+            alert('ok');
+        } else {
+            alert('bad');
+        }
+    }
+</script>
+</html>

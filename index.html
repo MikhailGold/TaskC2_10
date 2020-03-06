@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" type="text/css" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+<script src="src/my_script.js"></script>
+<head>
+	<title>		
+	</title>
+</head>
+<style>
+    .cnt {
+        width: 600px;
+        padding-left: 50px;
+        padding-top: 50px;
+    }
+</style>
+<body>
+    <div class="cnt">
+        <h1>Voting results:</h1>
+        <p class="cats">Cats</p>
+        <p class="dogs">Dogs</p>
+        <p class="parrots">Parrots</p>
+        <p class="procCats">Cats%</p>
+                <div class="progress" id="cats">
+            <div class="progress col-4 d-flex progress-bar-striped bg-success" role="progressbar" style="width:0%"
+                aria-valuenow="0"
+                aria-valuemin="0"
+                aria-valuemax="100"></div>
+        </div>
+        <br>
+        <p class="procDogs">Dogs%</p>
+        <div class="progress" id="dogs">
+            <div class="progress col-4 d-flex progress-bar-striped bg-success" role="progressbar" style="width:0%"
+                aria-valuenow="0"
+                aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <br>
+        <p class="procParrots">Parrots%</p>
+        <div class="progress" id="parrots">
+            <div class="progress col-4 d-flex progress-bar-striped bg-success" role="progressbar" style="width:0%"
+                aria-valuenow="0"
+                aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+    </div>
+</body>
+
+</html>
